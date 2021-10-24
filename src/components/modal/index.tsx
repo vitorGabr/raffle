@@ -1,18 +1,20 @@
 import React from 'react';
-import Modal from 'react-modal';
+
 import { Container } from './styles';
 import { useForm } from "react-hook-form";
 import Loading from '../loading';
+import { Box, Modal, TextField,Button } from '@material-ui/core';
+import { SxProps, Theme } from '@material-ui/system';
 
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
+const style:SxProps<Theme> | undefined = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
 };
 
 export default function ModalForm({
@@ -26,24 +28,31 @@ export default function ModalForm({
 
     return (
         <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
+            open={modalIsOpen}
+            onClose={closeModal}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
         >
-            <Container>
-                <h2 >Hello</h2>
-                <form onSubmit={handleSubmit(save)}>
-                    <input {...register("name")} type='text' placeholder='Ex: Jõao' />
-                    <input {...register("email")} className='email' type='email' placeholder='Ex: joao@gmail.com' />
-                    <div></div>
-                    <div className="btn-divs">
-                        <button className='close' onClick={closeModal}>Fechar</button>
-                        <button className='save' type='submit'>Reservar</button>
-                    </div>
-                </form>
-            </Container >
-            {isLoading && <Loading />}
+                <Box sx={style}>
+                    <Container>
+                        <h2 >Cadastre suas informações</h2>
+                        <form onSubmit={handleSubmit(save)}>
+                            <TextField id="outlined-basic" {...register("name")} label="Outlined" variant="outlined" />
+                            <div style={{ marginTop: '1rem' }}></div>
+                            <TextField id="outlined-basic" {...register("email")} label="Outlined" variant="outlined" />
+                            <div className="btn-divs">
+                                <Button variant="outlined" onClick={closeModal} color="error">
+                                    Fechar
+                                </Button>
+                                <Button variant="contained" type='submit' color="success">
+                                    Reservar
+                                </Button>
+
+                            </div>
+                        </form>
+                    </Container >
+                    {isLoading && <Loading />}
+                </Box>
         </Modal >
     );
 }

@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
-import Image from 'next/image'
+import { Button } from '@material-ui/core';
 import { useState } from 'react'
 import Swal from 'sweetalert2'
 import ModalForm from '../components/modal'
@@ -98,7 +98,7 @@ const Home = (props: HomeInterface) => {
             <p>Total</p>
             <p><strong>R$ {select!.numbers.length * 10},00</strong></p>
           </div>
-          <button
+          <Button
             onClick={() => {
               if (!select.numbers.length) {
                 return Swal.fire(
@@ -109,7 +109,10 @@ const Home = (props: HomeInterface) => {
               }
               setIsOpen(true)
             }}
-          >Reservar</button>
+            variant="outlined">
+            Reservar
+          </Button>
+
         </div>
 
       </main>
@@ -122,18 +125,6 @@ const Home = (props: HomeInterface) => {
         }}
         save={({ name, email }: any) => save({ name, email })}
       />
-      <footer className={'footer'}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={'logo'}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }

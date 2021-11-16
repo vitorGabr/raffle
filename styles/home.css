@@ -1,6 +1,5 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +7,7 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 1rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -37,6 +36,7 @@
   font-weight: bold;
   border-style: solid;
   border-color: transparent;
+  color: white;
 }
 
 .number:hover {
@@ -44,17 +44,17 @@
 }
 
 .available {
-  background: #42c2f5;
+  background: #000000;
 }
 
 .reserved {
-  background: yellow;
+  background: rgb(255, 153, 0);
   opacity: 0.8;
   touch-action: none !important;
 }
 
 .unavailable {
-  background: gray;
+  background: rgb(6, 253, 39);
   opacity: 0.5;
   touch-action: none;
 }
@@ -80,12 +80,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-center: center;
+  align-items: center;
 }
 .select > div {
   display: flex;
   justify-content: center;
-  align-center: center;
+  align-items: center;
 }
 .select > div > p {
   margin-right: 1rem;
@@ -105,4 +105,211 @@
   .numbers{
     padding: 0 10%;
   }
+}
+header {
+  width: 100%;
+  float: left;
+  padding: 15px 0%;
+  background-color: rgb(29, 139, 212);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.logo-imagem {
+  width: 200px;
+  height: 60px;
+  float: left;
+}
+
+.container-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-texto {
+  margin-left: 280px;
+  color: white;
+}
+
+.menu li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.menu li a {
+  font-size: 17px;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+}
+
+.banner {
+  display: flex;
+}
+
+.galeria {
+  width: 780px;
+  height: 480px;
+  overflow: hidden;
+  position: relative;
+}
+
+.foto {
+  opacity: 0;
+  animation-name: animacao;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  margin-top: 5vh;
+  position: absolute;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes animacao {
+  25% {
+    opacity: 1;
+    transform: scale(1.1, 1.1);
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.foto:nth-child(2) {
+  animation-delay: 5s;
+}
+.foto:nth-child(3) {
+  animation-delay: 10s;
+}
+.foto:nth-child(4) {
+  animation-delay: 15s;
+}
+
+.texto {
+  font: normal 16px Arial, Verdana, serif;
+  width: 950px;
+  height: 430px;
+  margin-left: 1rem;
+}
+
+.img {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 4%;
+}
+
+.titulo {
+  font-size: 1.8em;
+  background: #ec8f24;
+  border: 0;
+  margin-bottom: 1em;
+  color: rgb(255, 255, 255);
+  padding: 0.2em 0.6em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.valor {
+  font-size: 1.2em;
+  background: #ec8f24;
+  border: 0;
+  margin-bottom: 1em;
+  color: rgb(255, 255, 255);
+  padding: 0.2em 0.6em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 83%;
+  left: 12%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.status {
+  align-items: center;
+  justify-content: space-around;
+  text-transform: uppercase;
+  display: inline-block;
+  display: flex;
+  flex-direction: row;
+}
+
+.status-btn {
+  font-size: 1.2em;
+  border: 0;
+  margin-bottom: 1em;
+  color: rgb(255, 255, 255);
+  padding: 0.2em 0.6em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  margin-right: 0.5rem;
+}
+.status-btn:last-child{
+  margin-right: 0rem;
+}
+
+.status-btn.todos {
+  background: #000000;
+}
+
+.status-btn.disponiveis {
+  background: #000000;
+}
+
+.status-btn.reservados {
+  background: #ec8f24;
+}
+
+.status-btn.pagos {
+  background: #24ec24;
+}
+
+
+#linha {
+  width: 300px;
+  border: 1px solid #000;
+}
+
+.pag {
+  font-size: 1.2em;
+  background: #000000;
+  border: 0;
+  margin-bottom: 1em;
+  color: rgb(255, 255, 255);
+  padding: 0.2em 0.6em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  align-items: center;
+}
+
+@media screen and (max-width: 400px) {
+  .status {
+    flex-direction: column;
+  }
+  .status-btn.disponiveis {
+    background: #ec8f24;
+  }
+}
+
+.comprovante {
+  font-size: 1.2em;
+  background: #24ec24;
+  border: 0;
+  margin-bottom: 1em;
+  color: rgb(255, 255, 255);
+  padding: 0.2em 0.6em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+
+.forpag {
+  align-items: center;
 }
